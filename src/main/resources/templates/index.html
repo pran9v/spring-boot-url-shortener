@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>URL Shortener</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; }
+        input[type="text"] { width: 100%; padding: 10px; }
+        button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+        .result, .error { margin-top: 20px; }
+        .result { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+
+    <form method="post" action="/shorten">
+        <label>Enter URL:</label><br>
+        <input type="text" name="url" placeholder="https://example.com/some/long/url"/>
+        <button type="submit">Shorten</button>
+    </form>
+
+    <div class="result" th:if="${shortUrl}">
+        Short URL:
+        <a th:href="@{${shortUrl}}" th:text="${shortUrl}"></a><br>
+        <p>Created At:
+            <span th:text="${#temporals.format(createdAt, 'dd MMM yyyy HH:mm')}"></span>
+        </p>
+        <p>Total Clicks: <span th:text="${clickCount}"></span></p>
+    </div>
+
+    <div class="error" th:if="${error}" th:text="${error}"></div>
+
+</body>
+</html>

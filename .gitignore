@@ -1,0 +1,21 @@
+### Spring Tool Suite ###
+.sts4-cache/
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+
+### Maven ###
+target/
+
+### Logs ###
+*.log
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### VS Code (only if you're using it) ###
+#.vscode/
